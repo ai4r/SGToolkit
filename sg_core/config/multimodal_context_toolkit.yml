@@ -1,0 +1,49 @@
+name: multimodal_context
+
+train_data_path: ../data/ted_dataset_2020.07/lmdb_train
+val_data_path: ../data/ted_dataset_2020.07/lmdb_val
+test_data_path: ../data/ted_dataset_2020.07/lmdb_test
+
+wordembed_dim: 300
+wordembed_path: ../data/fasttext/crawl-300d-2M-subword.bin
+
+model_save_path: ../output/sgtoolkit
+random_seed: 0
+save_result_video: True
+
+# model params
+model: multimodal_context
+pose_representation: 3d_vec
+mean_dir_vec: [-0.00225, -0.98496, 0.16212, 0.01831, -0.79641, 0.52568, 0.02496, -0.65216, -0.67807, -0.87815, 0.40211, -0.06526, -0.38831, 0.85245, 0.13283, 0.35888, -0.16606, 0.70720, 0.87728, 0.41491, -0.00166, 0.38441, 0.85739, 0.14593, -0.39277, -0.17973, 0.69081]
+mean_pose: [-0.00000, -0.00002, 0.00004, -0.00055, -0.24976, 0.03882, 0.00152, -0.32251, 0.10291, 0.00430, -0.43652, 0.02527, -0.12537, -0.19055, 0.03108, -0.23547, 0.04413, 0.06726, -0.14551, 0.00403, 0.23596, 0.12585, -0.18445, 0.04031, 0.23547, 0.04749, 0.08014, 0.13293, 0.00299, 0.24744]
+normalize_motion_data: True
+
+n_layers: 4
+hidden_size: 300
+z_type: style_vector
+style_val_mean: [0.00241791, 0.48645255, 0]
+style_val_std: [0.00120855, 0.17992376, 1]
+style_val_max: [0.01574225, 1.5461352 , 1]
+input_context: both
+use_pose_control: true
+use_style_control: true
+
+# train params
+epochs: 80
+batch_size: 128
+learning_rate: 0.0005
+
+loss_l1_weight: 500
+loss_gan_weight: 5.0
+loss_reg_weight: 0.05
+loss_warmup: 10
+
+# eval params
+eval_net_path: ../output/h36m_gesture_autoencoder/gesture_autoencoder_checkpoint_best.bin
+
+# dataset params
+motion_resampling_framerate: 15
+n_poses: 60
+n_pre_poses: 30
+subdivision_stride: 20
+loader_workers: 4

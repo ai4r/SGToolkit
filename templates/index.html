@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SG Toolkit</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha512-/DXTXr6nQodMUiq+IUJYCt2PPOUjrHJ9wFrqpJ3XkgPNOZVfMok7cRw6CSxyCQxXn6ozlESsSh1/sMCTF1rL/g==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+<!-- Filepond (for audio file upload) -->
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.1/bootbox.min.js" integrity="sha512-eoo3vw71DUo5NRvDXP/26LFXjSFE1n5GQ+jZJhHz+oOTR4Bwt7QBCjsgGvuVMQUMMMqeEvKrQrNEI4xQMXp3uA==" crossorigin="anonymous"></script>
+
+<script src="https://preview.babylonjs.com/babylon.js"></script>
+<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pep/0.4.0/jquery.pep.min.js" integrity="sha512-PqqnNVs8iq01OKqtIsqIg7l/5/+tzfwyCzoE+XWKaCNIaOZyH8S0c0+tcoovAYd8YMQitj5nLcxz+KAYGaiXRA==" crossorigin="anonymous"></script>
+
+<script src="{{url_for('static', filename='js/util.js')}}"></script>
+<script src="{{url_for('static', filename='js/avatar.js')}}"></script>
+<script src="{{url_for('static', filename='js/sortedlist.js')}}"></script>
+<script src="{{url_for('static', filename='js/track.js')}}"></script>
+<script src="{{url_for('static', filename='js/cell.js')}}"></script>
+<script src="{{url_for('static', filename='js/history.js')}}"></script>
+<script src="{{url_for('static', filename='js/cellTrack.js')}}"></script>
+<script src="{{url_for('static', filename='js/timeline.js')}}"></script>
+<script src="{{url_for('static', filename='js/stylePannel.js')}}"></script>
+<script src="{{url_for('static', filename='js/motionLibrary.js')}}"></script>
+<script src="{{url_for('static', filename='js/ruleManager.js')}}"></script>
+<script src="{{url_for('static', filename='js/index.js')}}"></script>
+<script src="{{url_for('static', filename='js/avatarInterface.js')}}"></script>
+
+<!-- enable tooltip -->
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SGToolkit</a>
+    <div class="float-right">
+      <input id="btn-scenario-selector" type="checkbox" data-toggle="toggle" data-on="Auto" data-off="Manual" data-size="small" data-onstyle="secondary" data-offstyle="dark" checked>
+      <button class="btn btn-sm btn-outline-secondary" id="btn-help" type="button">Help</button>
+    </div>
+  </nav>
+  <div class="content">
+    <div id="input">
+      <h2 style="display:inline; vertical-align: middle;">Text Input </h2>
+      <div style="display:inline; vertical-align: middle;" class="dropdown" id="sampleTextDropdown">
+        <button class="btn btn-info dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sample text
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {%include "sample_text.html"%}
+        </div>
+      </div>
+      <textarea type="text" class="form-control" rows="2" placeholder="Input speech text. SSML tags are supported." id="text-input"></textarea>
+      <p>
+      <h5 style="display:inline;">Select Voice </h5>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-info btn-sm active">
+          <input type="radio" id="voice-female" name="voice" value="female" checked>Female
+        </label>
+        <label class="btn btn-info btn-sm">
+          <input type="radio" id="voice-male" name="voice" value="male">Male
+        </label>
+        <label class="btn btn-info btn-sm">
+          <input type="radio" id="voice-file" name="voice" value="file">Upload audio file
+        </label>
+      </div>
+      </p>
+      <div id="audio-upload-form" style="display: none;">
+        <input accept="audio/wav, audio/mp3" type="file" class="filepond">
+      </div>
+      <div class="float-left">
+        <button class="btn btn-primary" id="btn-generate">Generate</button>
+        <button class="btn btn-primary" id="btn-update">Apply Control</button>
+        <button class="btn btn-success" id="btn-play" data-toggle="button">Play</button>
+        <button class="btn btn-secondary ml-5" id="btn-undo" data-toggle="button">Undo</button>
+        <button class="btn btn-secondary" id="btn-redo" data-toggle="button">Redo</button>
+      </div>
+      <div class="float-right">
+        <button class="btn btn-warning btn-sm" id="btn-apply-rule">Apply rules</button>
+        <button class="btn btn-warning btn-sm" id="btn-view-rule">View rules</button>
+        <button class="btn btn-dark btn-sm" id="btn-export">Export</button>
+        <button class="btn btn-dark btn-sm" id="btn-open-import-dialog">Import</button>
+        <div id="import-form" style="display: none;">
+          <input accept="json/json" type="file" class="filepond">
+        </div>
+      </div>
+      <br/><br/>
+
+    </div>
+    <div id="audio-output">
+      <h2>Audio Output</h2>
+      <div id="waveform"></div>
+    </div>
+    <div id="speech-word">
+      <canvas id="word-canvas" touch-action="none"></canvas>
+    </div>
+    <div id="motion-control">
+      <div class="float-right">
+        <input id="btn-motion-track-bypass" type="checkbox" data-toggle="toggle" data-on="ByPass" data-off="Apply">
+      </div>
+      <h2> Motion Control Track </h2>
+      <div class="flex-grid cell-track blue" id="motion-ctrl-track">
+      </div>
+    </div>
+
+    <div id="style-control">
+      <h2> Style Control Track </h2>
+      <div class="flex-grid cell-track green" id="style-ctrl-track">
+    </div>
+
+    <div id="style-params" class="floatlefthalf">
+      <div>
+        <h2>Style Control</h2>
+        <div>
+          <h4>Speed</h4>
+          <input id="speed-style-slider" type='text'/>
+          <span class="ml-2">Value: <span id="speed-style-val-label">0</span> </span>
+        </div>
+        <div>
+          <h4>Space</h4>
+          <input id="space-style-slider" type='text'/>
+          <span class="ml-2">Value: <span id="space-style-val-label">0</span> </span>
+        </div>
+        <div>
+          <h4>Handedness (+: left, -: right)</h4>
+          <input id="handedness-style-slider" type='text'/>
+          <span class="ml-2">Value: <span id="handedness-style-val-label">0</span> </span>
+        </div>
+      </div>
+      <div>
+        <h4 style="display:inline;">Preset</h4> <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="Caveat: presets are just for handy manipulation. Style values might not reflect the preset name."></i>
+        <p>
+          <button class="btn btn-outline-primary" id="btn-preset-happy">Happy</button>
+          <button class="btn btn-outline-primary" id="btn-preset-sad">Sad</button>
+          <button class="btn btn-outline-primary" id="btn-preset-angry">Angry</button>
+        </p>
+      </div>
+    </div>
+    <div id="gesture-output", class="floatrighthalf">
+      <div>
+        <h2>Gesture Output & Control</h2>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" id="btn-avatar-edit-off" autocomplete="off" checked> Off
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" id="btn-avatar-edit-position" autocomplete="off"> Position
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" id="btn-avatar-edit-rotation" autocomplete="off"> Rotation
+          </label>
+        </div>
+      </div>
+      <canvas class="interactive" id="renderCanvas" touch-action="none"></canvas>
+    </div>
+    <div style="clear: both;"></div>
+    <div class="expandable-container" id="motion-library">
+      <div class="header">
+        <button class="btn btn-warning btn-with-margin" id="btn-open-motion-library">Open motion library</button>
+      </div>
+      <div class="content">
+        <div class="float-left" style="width: 30%;">
+          <canvas id="renderInLibrary" touch-action="none"></canvas>
+          <div class="float-right" style="margin-right: 20px;">
+            Flip L&R <input id="btn-flip-left-right" type="checkbox" data-toggle="toggle" data-size="small">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-info btn-sm active">
+                <input type="radio" id="motion-apply-x1" name="motion-speed" value="1">x1
+              </label>
+              <label class="btn btn-info btn-sm">
+                <input type="radio" id="motion-apply-x2" name="motion-speed" value="2" checked>x2
+              </label>
+              <label class="btn btn-info btn-sm">
+                <input type="radio" id="motion-apply-x3" name="motion-speed" value="3">x3
+              </label>
+            </div>
+            <button class="btn btn-warning" id="btn-apply-motion">Apply</button>
+          </div>
+          <div style="clear: both;"></div>
+          <hr>
+          <div>
+            <form id="motion-library-add">
+              <div class="form-group" style="margin-right: 20px;">
+                <label for="text-motion-name">Add selected region on the motion track to the library</label>
+                <input pattern="([A-z0-9À-ž\s]){3,}" type="text" class="form-control" id="text-motion-name" placeholder="Enter name" title="Please input alphanumeric characters only and 3 characters minimum">
+              </div>
+              <p>
+                <button class="btn btn-primary btn-sm" type="submit" value="add">Add selected region</button>
+                <button class="btn btn-primary btn-sm" type="submit" value="add-manual">Add with raw data</button>
+              </p>
+            </form>
+            <button class="btn btn-dark btn-sm" id="btn-delete-motion">Delete</button>
+          </div>
+        </div>
+        <div>
+          <ul class="list-unstyled row" id="motion-library-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  {%include "modal/control_data_delete_modal.html"%}
+  {%include "modal/motion_library_delete_modal.html"%}
+  {%include "modal/view_rule_modal.html"%}
+  {%include "modal/loading_progress_modal.html"%}
+  {%include "modal/cell_control_data_modification_invalid_warning.html"%}
+  {%include "modal/help_dialog_modal.html"%}
+  {%include "modal/generate_modal.html"%}
+  {%include "modal/import_json.html"%}
+
+</body>
+</html>

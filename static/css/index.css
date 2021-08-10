@@ -1,0 +1,156 @@
+.content {
+    margin: 10px;
+}
+
+.interactive {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-content.loading-content {
+    background: transparent;
+    position: relative;
+    margin: 0 auto;
+    border: none;
+    width: auto;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+.expandable-container {
+    padding: 0px;
+}
+
+.expandable-container .header {
+    background-color: transparent;
+    padding: 0px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.expandable-container .content {
+    display: none;
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    margin: 0px;
+}
+
+region.wavesurfer-region {
+    border-left: 1px solid black;
+}
+
+/* for labels */
+region.wavesurfer-region:after {
+    content: attr(data-region-label);
+    position: absolute;
+    top: 0;
+    padding-left: 5px;
+}
+
+#renderCanvas {
+    width: 90%;
+    height: 90%;
+}
+
+#renderInLibrary {
+    width: 90%;
+    height: 90%;
+}
+
+#speech-word {
+    position: relative;
+    top: -30px;
+}
+
+#word-canvas {
+    width: 100%;
+    height: 50px;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.alert {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.floatlefthalf {
+    float: left;
+    width: 50%;
+}
+
+.floatrighthalf {
+    float: right;
+    width: 50%;
+}
+
+.selected-region {
+    background-color: "rgb(255, 20, 147, 0.5)";
+}
+
+.btn-with-margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.slider.slider-horizontal {
+    width: 50%;
+}
+
+.slider-track-high {
+    background: #778899;
+}
+
+.slider-selection {
+    background: #778899;
+}
+
+.flex-grid {
+    display: flex;
+}
+
+:root {
+    --cell-border-width: 0.01em;
+}
+
+.track-frame {
+    flex: 1;
+    height: 3em;
+    background: #CCD1D1;
+    border: var(--cell-border-width) solid white;
+}
+
+.group-start {
+    border-left: var(--cell-border-width) solid black;
+}
+
+.group-end {
+    border-right: var(--cell-border-width) solid black;
+}
+
+.group-middle {
+    border-top: var(--cell-border-width) solid black;
+    border-bottom: var(--cell-border-width) solid black;
+}
+
+.cell-track.blue div.modified {
+    background: #4169E1;
+    cursor: move;
+}
+
+.cell-track.green div.modified {
+    background: #00FA9A;
+    cursor: move;
+}
+
+.cell-track div.selected {
+    border: var(--cell-border-width) solid crimson;
+}
