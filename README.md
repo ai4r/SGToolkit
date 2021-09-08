@@ -6,10 +6,12 @@ For the toolkit, we propose a neural generative model that synthesizes gestures 
 
 ![SCREENSHOT](static/screenshot.jpg)
 
-### [ACM DL](https://doi.org/10.1145/3472749.3474789) | [arXiv](https://arxiv.org/pdf/2108.04636.pdf)
+### [ACM DL](https://doi.org/10.1145/3472749.3474789) (to be updated) | [arXiv](https://arxiv.org/pdf/2108.04636.pdf)
 (please visit ACM DL page for the supplementary video and UIST'21 presentation video)
 
 ## Install
+
+(This code is tested on Ubuntu 18.04 and Python 3.6)
 
 * Install gentle and put the path into PYTHONPATH
     ```bash
