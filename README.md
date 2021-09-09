@@ -27,6 +27,8 @@ For the toolkit, we propose a neural generative model that synthesizes gestures 
     pip install -r requirements.txt 
     ```
 
+* Download the model file ([dropbox](https://www.dropbox.com/s/b5rwtn60j4tf2vr/multimodal_context_checkpoint_best.bin?dl=0)) and put it into `sg_core/output` folder
+
 
 ## Quickstart
 
