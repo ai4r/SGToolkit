@@ -37,7 +37,11 @@ def motion_library():
             result['msg'] = "fail"
         return result
     elif request.method == 'GET':
-        cursor = mongo.db.motion.find().sort("name", 1)
+        try:
+            cursor = mongo.db.motion.find().sort("name", 1)
+        except AttributeError as e:
+            return {}  # empty library
+
         motions = sgapi.convert_pose_coordinate_for_ui_for_motion_library(list(cursor))
         return dumps(motions)
     else:
@@ -77,7 +81,11 @@ def rule():
                           'as': 'motion_info'}},
                     ]
 
-        cursor = mongo.db.rule.aggregate(pipeline)
+        try:
+            cursor = mongo.db.rule.aggregate(pipeline)
+        except AttributeError as e:
+            return {}  # empty rules
+
         rules = sgapi.convert_pose_coordinate_for_ui_for_rule_library(cursor)
         rules = dumps(rules)
         return rules
