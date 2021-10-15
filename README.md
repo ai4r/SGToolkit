@@ -6,8 +6,8 @@ For the toolkit, we propose a neural generative model that synthesizes gestures 
 
 ![SCREENSHOT](static/screenshot.jpg)
 
-### [ACM DL](https://doi.org/10.1145/3472749.3474789) (to be updated) | [arXiv](https://arxiv.org/pdf/2108.04636.pdf)
-(please visit ACM DL page for the supplementary video and UIST'21 presentation video)
+### [ACM DL](https://doi.org/10.1145/3472749.3474789) | [arXiv](https://arxiv.org/pdf/2108.04636.pdf) | [Presentation video](https://youtu.be/qClSOtLiVlc)
+(please visit the ACM DL page for the supplementary video)
 
 ## Install
 
