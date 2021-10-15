@@ -70,12 +70,14 @@ Note that the motion library and rule functions are not available. If you want t
 ## Citation
 If this work is helpful in your research, please cite:
 ```text
-@inproceedings{
-  yoon2021sgtoolkit,
-  title={SGToolkit: An Interactive Gesture Authoring Toolkit for Embodied Conversational Agents},
-  author={Yoon, Youngwoo and Park, Keunwoo and Jang, Minsu and Kim, Jaehong and Lee, Geehyuk},
-  booktitle={ACM Symposium on User Interface Software and Technology (UIST)},
-  year={2021}
+@inproceedings{yoon2021sgtoolkit,
+    author = {Yoon, Youngwoo and Park, Keunwoo and Jang, Minsu and Kim, Jaehong and Lee, Geehyuk},
+    title = {SGToolkit: An Interactive Gesture Authoring Toolkit for Embodied Conversational Agents},
+    year = {2021},
+    publisher = {Association for Computing Machinery},
+    url = {https://doi.org/10.1145/3472749.3474789},
+    booktitle = {The 34th Annual ACM Symposium on User Interface Software and Technology},
+    series = {UIST '21}
 }
 ```
 
