@@ -15,6 +15,7 @@ For the toolkit, we propose a neural generative model that synthesizes gestures 
 
 * Install gentle and put the path into PYTHONPATH
     ```bash
+    sudo apt install gfortran
     git clone https://github.com/lowerquality/gentle.git
     cd gentle
     ./install.sh  # try 'sudo ./install.sh' if you encounter permission errors
